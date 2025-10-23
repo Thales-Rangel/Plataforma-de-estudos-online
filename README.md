@@ -5,9 +5,8 @@ Este projeto está sendo desenvolvido para avaliação e obtenção da nota nas 
 A ideia central no desenvolvimento deste projeto é a criação de uma plataforma online e gratuita que permita acesso a diversas formas de conteúdo para apredizagem e estudos, sendo isso livros, artigos, apostilas, videoaulas e cursos online. Se trata de um ambiente onde estudantes e professores podem buscar e compartilhar conteúdos de conhecimento de forma gratuita.
 
 ## Requisitos 🪪:
-- Cadastro e gerênciamento de permissões de usuários;
-- Permitir login de usuários;
-- Armazenar videoaulas e outros materiais didáticos (artigos, livros e etc.);
+- Gerênciamento de logins e permissões de usuários;
+- Gerênciar videoaulas e outros materiais didáticos (artigos, livros e etc.);
 - Classificar e organizar os materiais de acordo com suas informações passadas (ano de publicação, editora, autor, conteúdo e etc.);
 - Permitir o download dos materiais (incluindo os vídeos);
 
