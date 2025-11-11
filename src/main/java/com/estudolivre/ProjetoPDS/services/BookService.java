@@ -1,6 +1,8 @@
 package com.estudolivre.ProjetoPDS.services;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,9 +20,36 @@ public class BookService {
 		this.bookRepository = bookRepository;
 	}
 	
-	public Book upload(MultipartFile file) throws IOException {
+	public Book saveBook(String author, String title, LocalDate publicationDate) {
 		Book book = new Book();
-		book.setData(file.getBytes());
+		book.setAuthor(author);
+		book.setTitle(title);
+		book.setPublicationDate(publicationDate);
+		return bookRepository.save(book);
+	}
+	
+	public Book updateBook(Long id, String author, LocalDate publicationDate, MultipartFile file) throws IOException {
+		Optional<Book> byId = bookRepository.findById(id);
+		if (byId.isEmpty()) {
+			return null;
+		}
+		
+		Book book = byId.get();
+		book.setAuthor(author);
+		book.setPublicationDate(publicationDate);
+		book.setFile(file.getBytes());
+		
+		return bookRepository.save(book);
+	}
+	
+	public Book upload(Long id, MultipartFile file) throws IOException {
+		Optional<Book> byId = bookRepository.findById(id);
+		if (byId.isEmpty()) {
+			return null;
+		}
+		
+		Book book = byId.get();
+		book.setFile(file.getBytes());
 		return bookRepository.save(book);
 	}
 

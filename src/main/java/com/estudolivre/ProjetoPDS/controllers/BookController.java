@@ -23,8 +23,8 @@ public class BookController {
 	}
 
 	@PostMapping("/upload")
-	public Book upload(@RequestParam MultipartFile file) throws IOException {
-		return bookService.upload(file);
+	public Book uploadFile(@RequestParam Long id, @RequestParam MultipartFile file) throws IOException {
+		return bookService.upload(id, file);
 	}
 
 }
