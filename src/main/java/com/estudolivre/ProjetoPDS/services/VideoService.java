@@ -17,7 +17,6 @@ public class VideoService {
 
     public VideoAula salvarVideo(MultipartFile file) throws IOException {
         VideoAula v = new VideoAula();
-        v.setNome(file.getOriginalFilename());
         v.setTipo(file.getContentType());
         v.setDados(file.getBytes());
         return repository.save(v);

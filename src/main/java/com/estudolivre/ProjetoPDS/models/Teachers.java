@@ -1,15 +1,12 @@
 package com.estudolivre.ProjetoPDS.models;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Teachers extends Users {
 	
 	private String disciplina;
 	private String formacao; 
-	
-	public Teachers(int id, String nomeCompleto, String email, String senha, String disciplina, String formacao) {
-		super(id, nomeCompleto, email, senha);
-		this.disciplina = disciplina;
-		this.formacao = formacao;
-	}
 
 	private Users Users;
 

@@ -1,26 +1,25 @@
 package com.estudolivre.ProjetoPDS.models;
 
-public class Users {
-	
-	private int id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public abstract class Users {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private String nomeCompleto;
 	private String email;
 	private String senha;
-	
-	public Users(int id, String nomeCompleto, String email, String senha) {
-		
-		this.id = id;
-		this.nomeCompleto = nomeCompleto;
-		this.email = email;
-		this.senha = senha;
-		
-	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -52,7 +51,5 @@ public class Users {
 	public String toString() {
 		return "Users [id=" + id + ", nomeCompleto=" + nomeCompleto + ", email=" + email + ", senha=" + senha + "]";
 	}
-	
 
 }
-
