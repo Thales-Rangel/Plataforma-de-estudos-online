@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 @Entity
 public class Student extends Users {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private String matricula;
 	private String curso;
 	

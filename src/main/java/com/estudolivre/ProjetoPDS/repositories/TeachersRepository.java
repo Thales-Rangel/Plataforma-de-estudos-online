@@ -1,18 +1,9 @@
 package com.estudolivre.ProjetoPDS.repositories;
 
-import java.util.List;
-import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.estudolivre.ProjetoPDS.models.Teachers;
 
-public interface TeachersRepository {
-
-	void save(Teachers teachers);
-
-	List<Teachers> findAll();
-
-	Optional<Teachers> findById(Long id);
-
-	void deleteById(Long id);
+public interface TeachersRepository extends JpaRepository<Teachers, Long> {
 
 }
