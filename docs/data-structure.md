@@ -45,3 +45,15 @@ De forma geral, os materiais terão os seguintes atributos em comum:
 Assim como os usuários, os materiais também se dividem em tipos com características específicas.
 
 ### 2.1 Livros ([Book](../src/main/java/com/estudolivre/ProjetoPDS/models/Book.java))
+
+Livros didáticos ou literários que podem servir como materiais de estudos e consulta de conteúdo.
+
+Os livros tem os mesmos atributos comuns a todos os materiais, com um acrescimo de um atributo "file", que é onde o arquivo com o conteúdo do livro é disposto.
+
+### 2.2 Vídeos ([VideoAula](../src/main/java/com/estudolivre/ProjetoPDS/models/VideoAula.java))
+Vídeos explicativos ou didáticos que auxiliam no entendimento ou na visualização do conteúdo.
+
+Detém dos mesmos atributos comum a outros materiais, com o acrescimo de dois atributos:
+
+- Tipo
+- Dados
