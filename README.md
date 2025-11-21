@@ -12,15 +12,13 @@ A ideia central no desenvolvimento deste projeto é a criação de uma plataform
 ## 2. Arquitetura e Stack 🪪:
 Esta plataforma utiliza de uma arquitetura de classes [orientada a objetos](https://www.alura.com.br/artigos/poo-programacao-orientada-a-objetos).
 
-Estando organizado em uma arquitetura de camadas, sendo elas as de controle, serviços, repositórios e banco de dados, além claro da camada de frontend já embutida no projeto.
+Estando organizado em uma [arquitetura de camadas](docs/Layers-Project.md), e a estrutura de dados pode ser visualizada com mais detalhes na [documentação](docs/data-structure.md).
 
 ### Detalhes da stack e integrações:
 - A implementação é feita em [Java](https://www.java.com/pt-BR/download/help/whatis_java.html) [21](https://docs.oracle.com/en/java/javase/21/).
 - Uso do framework [Spring Boot](https://spring.io/projects/spring-boot).
 - Persistência de dados feita em um banco [MySQL](https://dev.mysql.com/doc/), acesse o modelo de dados para uma visualização do modelo
-- As bibliotecas utilizadas pelo projeto podem ser vistas nos arquivos que estão na raiz do projeto:
-    - [Requeriments.txt](Requeriments.txt)
-    - [Requeriments-dev.txt](Requeriments-dev.txt)
+- As bibliotecas utilizadas pelo projeto podem ser vistas no arquivo [pom.xml](pom.xml) na raiz do projeto dentro da tag dependencies.
 
 
 ## 3. Execução
