@@ -23,7 +23,7 @@ Estando organizado em uma arquitetura de camadas, sendo elas as de controle, ser
     - [Requeriments-dev.txt](Requeriments-dev.txt)
 
 
-## 3. Execussão
+## 3. Execução
 Para executar o serviço é necessário configurar as variáveis de ambiente no arquivo [appliccation.properties](src/main/resources/application.properties):
 
 - spring.datasource.url: com o endereço completo do driver de conexão a um banco de dados MySQL.
