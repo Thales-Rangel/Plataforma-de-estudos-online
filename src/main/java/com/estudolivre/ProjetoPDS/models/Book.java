@@ -12,13 +12,13 @@ public class Book extends Materials {
 		return file;
 	}
 
-	public void setFile(byte[] data) {
-		this.file = data;
+	public void setFile(byte[] file) {
+		this.file = file;
 	}
 
 	@Override
 	public String toString() {
-		return "Book [data=" + Arrays.toString(file) + "]";
+		return "Book [file=" + Arrays.toString(file) + "]";
 	}
 	
 }
