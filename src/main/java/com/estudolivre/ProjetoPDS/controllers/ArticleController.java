@@ -12,7 +12,7 @@ import com.estudolivre.ProjetoPDS.models.Article;
 import com.estudolivre.ProjetoPDS.services.ArticleService;
 
 @Controller
-@RequestMapping("/Artigos")
+@RequestMapping("/usuarios/artigos")
 public class ArticleController {
 	
 	private final ArticleService articleService;
