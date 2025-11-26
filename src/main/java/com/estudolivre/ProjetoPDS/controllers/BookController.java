@@ -12,7 +12,7 @@ import com.estudolivre.ProjetoPDS.models.Book;
 import com.estudolivre.ProjetoPDS.services.BookService;
 
 @Controller
-@RequestMapping("/livross")
+@RequestMapping("/materiais/livros")
 public class BookController {
 	
 	private final BookService bookService;

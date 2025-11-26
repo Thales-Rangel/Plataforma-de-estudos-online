@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/videos")
+@RequestMapping("/materiais/videos")
 public class VideoController {
 
     @Autowired
