@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/students")
+@RequestMapping("/usuarios/estudante")
 public class StudentController {
 
     @Autowired
