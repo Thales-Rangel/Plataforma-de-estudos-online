@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastrar | Estudo Livre</title>
+	<link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+	<div class="container">
+		<h2>Criar Conta</h2>
+
+		<form action="/cadastro" method="post">
+			<input type="text" name="nome" placeholder="Seu nome" required>
+			<input type="email" name="email" placeholder="E-mail" required>
+			<input type="password" name="senha" placeholder="Senha" required>
+
+			<select name="tipo" required>
+				<option value="">Selecione o tipo</option>
+				<option value="ALUNO">Aluno</option>
+				<option value="PROFESSOR">Professor</option>
+			</select>
+
+			<button type="submit">Cadastrar</button>
+
+			<p class="cadastro">
+				Já tem conta?
+				<a href="/login">Entrar</a>
+			</p>
+		</form>
+	</div>
+</body>
+</html>
