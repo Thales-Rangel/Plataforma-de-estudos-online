@@ -6,20 +6,19 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class Book extends Materials {
-	
-	private byte[] data;
+	private byte[] file;
 
-	public byte[] getData() {
-		return data;
+	public byte[] getDatFile() {
+		return file;
 	}
 
-	public void setData(byte[] data) {
-		this.data = data;
+	public void setFile(byte[] file) {
+		this.file = file;
 	}
 
 	@Override
 	public String toString() {
-		return "Book [data=" + Arrays.toString(data) + "]";
+		return "Book [file=" + Arrays.toString(file) + "]";
 	}
 	
 }
