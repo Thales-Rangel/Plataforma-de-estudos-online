@@ -2,6 +2,7 @@ package com.estudolivre.ProjetoPDS.services;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -51,6 +52,30 @@ public class BookService {
 		Book book = byId.get();
 		book.setFile(file.getBytes());
 		return bookRepository.save(book);
+	}
+	
+	public List<Book> listAllBooks() {
+		return bookRepository.findAll();
+	}
+	
+	public void delete(Long id) {
+		Optional<Book> byId = bookRepository.findById(id);
+		
+		if (byId.isEmpty()) {
+			return;
+		}
+		
+		Book book = byId.get();
+		bookRepository.delete(book);
+	}
+	
+	public Book findById(Long id) {
+		Optional<Book> byId = bookRepository.findById(id);
+		if (byId.isEmpty()) {
+			return null;
+		}
+		
+		return byId.get();
 	}
 
 }

@@ -2,6 +2,7 @@ package com.estudolivre.ProjetoPDS.services;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -51,6 +52,30 @@ public class ArticleService {
 		Article article = byId.get();
 		article.setFile(file.getBytes());
 		return articleRepository.save(article);
+	}
+	
+	public List<Article> listAllArticles() {
+		return articleRepository.findAll();
+	}
+	
+	public void delete(Long id) {
+		Optional<Article> byId = articleRepository.findById(id);
+		
+		if (byId.isEmpty()) {
+			return;
+		}
+		
+		Article article = byId.get();
+		articleRepository.delete(article);
+	}
+	
+	public Article findById(Long id) {
+		Optional<Article> byId = articleRepository.findById(id);
+		if (byId.isEmpty()) {
+			return null;
+		}
+		
+		return byId.get();
 	}
 
 }
