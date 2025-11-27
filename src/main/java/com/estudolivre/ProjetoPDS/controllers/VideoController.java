@@ -1,43 +1,39 @@
 package com.estudolivre.ProjetoPDS.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import com.estudolivre.ProjetoPDS.models.VideoAula;
 import com.estudolivre.ProjetoPDS.services.VideoService;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
-import java.util.Optional;
+import java.util.List;
 
 @Controller
 @RequestMapping("/materiais/videos")
 public class VideoController {
 
-    @Autowired
-    private VideoService service;
+	@Autowired
+	private VideoService service;
 
-    @PostMapping("/upload")
-    public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file) {
-        try {
-            service.salvarVideo(file);
-            return ResponseEntity.ok("Upload realizado com sucesso!");
-        } catch (IOException e) {
-            return ResponseEntity.status(500).body("Erro ao salvar o vídeo.");
-        }
-    }
+	@GetMapping("/novo")
+	public String abrirFormulario(Model model) {
+		model.addAttribute("videoAula", new VideoAula());
+		return "cadastro-video";
+	}
 
-    @GetMapping("/{id}")
-    public ResponseEntity<byte[]> getVideo(@PathVariable Long id) {
-        Optional<VideoAula> Video = service.obterVideo(id);
-        if (Video.isPresent()) {
-            return ResponseEntity.ok()
-                    .contentType(MediaType.valueOf(Video.get().getTipo()))
-                    .body(Video.get().getDados());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+	@PostMapping("/salvar")
+	public String salvarVideo(VideoAula videoAula) {
+		service.save(videoAula);
+		return "redirect:/materiais/videos/novo";
+	}
+
+	@GetMapping
+	public String listarVideos(Model model) {
+		List<VideoAula> listar = service.listar();
+		model.addAttribute("videos", listar);
+		return "lista-videos";
+	}
 }
