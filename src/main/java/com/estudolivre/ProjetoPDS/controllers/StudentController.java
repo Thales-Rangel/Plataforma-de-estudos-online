@@ -14,7 +14,7 @@ import java.util.List;
 public class StudentController {
 
 	@Autowired
-	private StudentService studentService;
+	private StudentService service;
 
     @GetMapping("/form")
     public String form() {
@@ -23,21 +23,21 @@ public class StudentController {
 
     @PostMapping
     public void salvar(Student student) {
-        studentService.saveStudent(student);
+        service.saveStudent(student);
     }
 
     @GetMapping("/lista")
     public List<Student> listar() {
-        return studentService.listAllStudents();
+        return service.listAllStudents();
     }
 
     @GetMapping("/{id}")
     public Student buscarPorID(@PathVariable Long id) {
-    	return studentService.findById(id);
+    	return service.findById(id);
     }
 
     @DeleteMapping("/delete/{id}")
     public void deletar(@PathVariable Long id) {
-        studentService.delete(id);
+        service.delete(id);
     }
 }
