@@ -3,20 +3,18 @@ package com.estudolivre.ProjetoPDS.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.estudolivre.ProjetoPDS.models.Teacher;
-import com.estudolivre.ProjetoPDS.repositories.TeachersRepository;
+import com.estudolivre.ProjetoPDS.services.TeachersService;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/usuarios/professor")
 public class TeachersController {
 
     @Autowired
-    private TeachersRepository teachersRepository;
+    private TeachersService service;
 
     @GetMapping("/form")
     public String form() {
@@ -24,34 +22,22 @@ public class TeachersController {
     }
 
     @PostMapping
-    public String adicionar(Teacher Teachers) {
-        teachersRepository.save(Teachers);
-        return "redirect:/teachers";
+    public void salvar(Teacher Teacher) {
+        service.saveTeacher(Teacher);
     }
 
-    @GetMapping
-    public ModelAndView listar() {
-        List<Teacher> teachers = teachersRepository.findAll();
-        ModelAndView mv = new ModelAndView("teachers/listaTeachers");
-        mv.addObject("teachers", teachers);
-        return mv;
+    @GetMapping("/lista")
+    public List<Teacher> listar() {
+    	return service.listAllTeachers();
     }
 
     @GetMapping("/{id}")
-    public ModelAndView detalhar(@PathVariable Long id) {
-        ModelAndView mv = new ModelAndView("teachers/detalhesTeacher");
-        Optional<Teacher> teacher = teachersRepository.findById(id);
-        if (teacher.isPresent()) {
-            mv.addObject("teacher", teacher.get());
-        } else {
-            mv.setViewName("redirect:/teachers");
-        }
-        return mv;
+    public Teacher buscarPorId(@PathVariable Long id) {
+    	return service.findById(id);
     }
 
-    @GetMapping("/delete/{id}")
-    public String deletar(@PathVariable Long id) {
-        teachersRepository.deleteById(id);
-        return "redirect:/teachers";
+    @DeleteMapping("/delete/{id}")
+    public void deletar(@PathVariable Long id) {
+        service.delete(id);
     }
 }
