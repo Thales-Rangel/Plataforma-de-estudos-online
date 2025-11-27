@@ -3,7 +3,7 @@ package com.estudolivre.ProjetoPDS.models;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Teachers extends Users {
+public class Teacher extends Users {
 	
 	private static final long serialVersionUID = 1L;
 	

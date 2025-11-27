@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.estudolivre.ProjetoPDS.models.Teachers;
+import com.estudolivre.ProjetoPDS.models.Teacher;
 import com.estudolivre.ProjetoPDS.repositories.TeachersRepository;
 
 import java.util.List;
@@ -24,14 +24,14 @@ public class TeachersController {
     }
 
     @PostMapping
-    public String adicionar(Teachers Teachers) {
+    public String adicionar(Teacher Teachers) {
         teachersRepository.save(Teachers);
         return "redirect:/teachers";
     }
 
     @GetMapping
     public ModelAndView listar() {
-        List<Teachers> teachers = teachersRepository.findAll();
+        List<Teacher> teachers = teachersRepository.findAll();
         ModelAndView mv = new ModelAndView("teachers/listaTeachers");
         mv.addObject("teachers", teachers);
         return mv;
@@ -40,7 +40,7 @@ public class TeachersController {
     @GetMapping("/{id}")
     public ModelAndView detalhar(@PathVariable Long id) {
         ModelAndView mv = new ModelAndView("teachers/detalhesTeacher");
-        Optional<Teachers> teacher = teachersRepository.findById(id);
+        Optional<Teacher> teacher = teachersRepository.findById(id);
         if (teacher.isPresent()) {
             mv.addObject("teacher", teacher.get());
         } else {
