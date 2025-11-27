@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Enviar Material</title>
+<link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+	<div class="content upload-box">
+    <h2>Enviar Material</h2>
+
+    <form method="post" enctype="multipart/form-data" action="/materiais/upload">
+        <input type="text" name="titulo" placeholder="Título do material" required>
+
+        <label>Selecione o arquivo (PDF/Imagem):</label>
+        <input type="file" name="arquivo" required>
+
+        <button class="btn-primario" type="submit">Enviar</button>
+    </form>
+</div>
+
+</body>
+</html>

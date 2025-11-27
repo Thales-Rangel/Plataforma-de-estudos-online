@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Vídeos | Estudo Livre</title>
+<link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+	<header>
+    <h2>Estudo Livre</h2>
+
+    <nav class="menu">
+        <a href="/">Home</a>
+        <a href="/materiais">Materiais</a>
+        <a href="/videoaulas">Vídeos</a>
+        <a href="/logout">Sair</a>
+    </nav>
+</header>
+
+<div class="content">
+    <h3>Videoaulas</h3>
+
+    <a th:if="${usuario.tipo == 'PROFESSOR'}" 
+       href="/videoaulas/upload" 
+       class="btn-primario">
+       Enviar Vídeo
+    </a>
+
+    <div class="lista-videos">
+        <div th:each="v : ${videos}" class="video-card">
+            <h4 th:text="${v.titulo}"></h4>
+
+            <video width="350" controls th:src="@{/videoaulas/stream/{id}(id=${v.id})}"></video>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

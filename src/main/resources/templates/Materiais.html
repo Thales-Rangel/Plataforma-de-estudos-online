@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Materiais | Estudo Livre</title>
+<link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+	<header>
+    <h2>Estudo Livre</h2>
+
+    <nav class="menu">
+        <a href="/">Home</a>
+        <a href="/materiais">Materiais</a>
+        <a href="/videoaulas">Vídeos</a>
+        <a href="/logout">Sair</a>
+    </nav>
+</header>
+
+<div class="content">
+    <h3>Materiais Disponíveis</h3>
+
+    <!-- PROFESSOR VÊ O BOTÃO -->
+    <a th:if="${usuario.tipo == 'PROFESSOR'}" 
+       href="/materiais/upload" 
+       class="btn-primario">
+       Adicionar Material
+    </a>
+
+    <div class="lista-arquivos">
+        <div th:each="m : ${materiais}" class="arquivo-card">
+            <h4 th:text="${m.titulo}"></h4>
+
+            <a th:href="@{/materiais/download/{id}(id=${m.id})}" class="btn-download">
+                Baixar
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
