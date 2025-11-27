@@ -3,20 +3,18 @@ package com.estudolivre.ProjetoPDS.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.estudolivre.ProjetoPDS.models.Student;
-import com.estudolivre.ProjetoPDS.repositories.StudentRepository;
+import com.estudolivre.ProjetoPDS.services.StudentService;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/usuarios/estudante")
 public class StudentController {
 
-    @Autowired
-    private StudentRepository studentRepository;
+	@Autowired
+	private StudentService studentService;
 
     @GetMapping("/form")
     public String form() {
@@ -24,34 +22,22 @@ public class StudentController {
     }
 
     @PostMapping
-    public String adicionar(Student student) {
-        studentRepository.save(student);
-        return "redirect:/students";
+    public void salvar(Student student) {
+        studentService.saveStudent(student);
     }
 
-    @GetMapping
-    public ModelAndView listar() {
-        List<Student> students = studentRepository.findAll();
-        ModelAndView mv = new ModelAndView("students/listaStudents");
-        mv.addObject("students", students);
-        return mv;
+    @GetMapping("/lista")
+    public List<Student> listar() {
+        return studentService.listAllStudents();
     }
 
     @GetMapping("/{id}")
-    public ModelAndView detalhar(@PathVariable Long id) {
-        ModelAndView mv = new ModelAndView("students/detalhesStudent");
-        Optional<Student> student = studentRepository.findById(id);
-        if (student.isPresent()) {
-            mv.addObject("student", student.get());
-        } else {
-            mv.setViewName("redirect:/students");
-        }
-        return mv;
+    public Student buscarPorID(@PathVariable Long id) {
+    	return studentService.findById(id);
     }
 
-    @GetMapping("/delete/{id}")
-    public String deletar(@PathVariable Long id) {
-        studentRepository.deleteById(id);
-        return "redirect:/students";
+    @DeleteMapping("/delete/{id}")
+    public void deletar(@PathVariable Long id) {
+        studentService.delete(id);
     }
 }
