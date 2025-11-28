@@ -1,22 +1,9 @@
 @charset "UTF-8";
+
 body {
     margin: 0;
     font-family: Poppins, sans-serif;
     background: #f4f4f4;
-}
-
-header {
-    background: #007bff;
-    padding: 15px;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-}
-
-.menu a {
-    color: #fff;
-    margin-left: 20px;
-    text-decoration: none;
 }
 
 .content {
@@ -33,13 +20,8 @@ header {
     margin-bottom: 20px;
 }
 
-.lista-arquivos, .lista-videos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.arquivo-card, .video-card {
+.arquivo-card,
+.video-card {
     background: white;
     padding: 15px;
     width: 300px;
@@ -64,7 +46,8 @@ header {
     box-shadow: 0 0 10px #0003;
 }
 
-input, button {
+input,
+button {
     width: 100%;
     margin-top: 10px;
     padding: 12px;

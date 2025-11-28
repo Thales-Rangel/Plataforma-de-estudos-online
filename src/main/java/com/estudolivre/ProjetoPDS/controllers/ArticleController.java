@@ -1,8 +1,13 @@
 package com.estudolivre.ProjetoPDS.controllers;
 
 import java.io.IOException;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,19 +17,41 @@ import com.estudolivre.ProjetoPDS.models.Article;
 import com.estudolivre.ProjetoPDS.services.ArticleService;
 
 @Controller
-@RequestMapping("/usuarios/artigos")
+@RequestMapping("/materiais/artigos")
 public class ArticleController {
 	
-	private final ArticleService articleService;
-
-	public ArticleController(ArticleService articleService) {
-		super();
-		this.articleService = articleService;
+	@Autowired
+	private ArticleService service;
+	
+	@GetMapping("/form")
+	public String form(Article artigo) {
+		return "materials/articles/formArtigo"; //name do HTML
+	}
+	
+	@PostMapping
+	public String salvar(Article artigo) {
+		service.saveArticle(artigo);
+		return "redirect:/materiais";
 	}
 	
 	@PostMapping("/upload")
-	public Article uploadFile (@RequestParam Long id, @RequestParam MultipartFile file) throws IOException {
-		return articleService.upload(id, file);
+	public void uploadFile (@RequestParam Article artigo, @RequestParam MultipartFile file) throws IOException {
+		service.upload(artigo, file);
+	}
+	
+	@GetMapping("/lista")
+	public List<Article> listar(){
+		return service.listAllArticles();
+	}
+	
+	@GetMapping("/{id}")
+	public Article buscarArticle(@PathVariable Long id) {
+		return service.findById(id);
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public void deletar(@PathVariable Long id) {
+		service.delete(id);
 	}
 
 }
