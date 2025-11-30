@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Enviar Material</title>
+<link rel="stylesheet" href="/css/estilo.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<style type="text/css">
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	font-family: Poppins, sans-serif;
+	background: #f4f4f4;
+}
+
+.content {
+	padding: 30px;
+}
+
+.btn-primario {
+	background: #007bff;
+	color: white;
+	padding: 10px 18px;
+	border-radius: 8px;
+	text-decoration: none;
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+.arquivo-card, .video-card {
+	background: white;
+	padding: 15px;
+	width: 300px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #0002;
+}
+
+.btn-download {
+	background: #28a745;
+	padding: 8px;
+	color: white;
+	border-radius: 6px;
+	text-decoration: none;
+}
+
+.upload-box {
+	background: white;
+	width: 400px;
+	margin: 40px auto;
+	padding: 25px;
+	border-radius: 12px;
+	box-shadow: 0 0 10px #0003;
+}
+
+input, button {
+	width: 100%;
+	margin-top: 10px;
+	padding: 12px;
+	border-radius: 6px;
+}
+
+button {
+	background: #007bff;
+	color: white;
+	border: none;
+}
+
+button:hover {
+	background: #005fcc;
+}
+</style>
+</head>
+<body>
+
+<div th:replace="~{Menu :: menu}"></div>
+
+	<div class="container">
+		<h1>Adicionar Livro</h1>
+		<form action="/materiais/livros"
+			method="post" th:object="${Livro}">
+			<div>
+				<input type="hidden" readonly="readonly" name="Id">
+			</div>
+			<div>
+				<label for="author">Autor:</label> <input name="author" type="text">
+			</div>
+
+			<div>
+				<label for="title">Título:</label> <input name="title" type="text">
+			</div>
+
+			<div>
+				<label for="publicationDate">Data de Publicação:</label> <input name="publicationDate"
+					type="date">
+			</div>
+
+			<div>
+				<label>Selecione o arquivo (PDF/Imagem):</label> <input type="file"
+					name="file">
+			</div>
+
+			<div>
+				<button class="btn-primario" type="submit">Salvar</button>
+				<button class="waves-effect waves-light btn" type="reset">Limpar</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Materiais | Estudo Livre</title>
+
+<link rel="stylesheet" href="../estilos/Estilo.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<style type="text/css">
+h3 {
+	font-size: 30px;
+}
+
+body {
+	margin: 0;
+	font-family: Poppins, sans-serif;
+	background: #f4f4f4;
+}
+
+.content {
+	padding: 30px;
+}
+
+.btn-primario {
+	background: #007bff;
+	color: white;
+	padding: 10px 18px;
+	border-radius: 8px;
+	text-decoration: none;
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+.arquivo-card, .video-card {
+	background: white;
+	padding: 15px;
+	width: 300px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #0002;
+}
+
+.btn-download {
+	background: #28a745;
+	padding: 8px;
+	color: white;
+	border-radius: 6px;
+	text-decoration: none;
+}
+
+.upload-box {
+	background: white;
+	width: 400px;
+	margin: 40px auto;
+	padding: 25px;
+	border-radius: 12px;
+	box-shadow: 0 0 10px #0003;
+}
+
+input, button {
+	width: 100%;
+	margin-top: 10px;
+	padding: 12px;
+	border-radius: 6px;
+}
+
+button {
+	background: #007bff;
+	color: white;
+	border: none;
+}
+
+button:hover {
+	background: #005fcc;
+}
+</style>
+</head>
+
+<body>
+
+	<div th:replace="~{Menu :: menu}"></div>
+
+	<div class="container">
+		<div class="content">
+			<h2>Materiais Disponíveis</h2>
+
+			<!-- PROFESSOR VÊ O BOTÃO -->
+			<a href="/materiais/artigos/form" class="btn-primario"> Adicionar
+				Artigo </a> 
+			<a href="/materiais/livros/form" class="btn-primario">
+				Adicionar Livro </a>
+
+			<div class="listas-materiais">
+
+				<div class="lista-artigos">
+
+					<h3>Lista de Artigos</h3>
+
+					<table class="highlight">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Autor</th>
+								<th>Título</th>
+								<th>Data</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="a : ${artigos}">
+								<td th:text="${a.id}">ID</td>
+								<td><span th:text="${a.author}">Autor</span></td>
+								<td th:text="${a.title}">Título</td>
+								<td th:text="${#temporals.format(a.publicationDate)}">Data</td>
+								<td><a th:href="@{/materiais/download/{id}(id=${a.id})}"
+									class="btn-download"> Download </a></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+				<div class="lista-livros">
+
+					<h3>Lista de Livros</h3>
+
+					<table class="highlight">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Autor</th>
+								<th>Título</th>
+								<th>Data</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="l : ${livros}">
+								<td th:text="${l.id}">ID</td>
+								<td><span th:text="${l.author}">Autor</span></td>
+								<td th:text="${l.title}">Título</td>
+								<td th:text="${#temporals.format(l.publicationDate)}">Data</td>
+								<td><a th:href="@{/materiais/download/{id}(id=${l.id})}"
+									class="btn-download"> Download </a></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
