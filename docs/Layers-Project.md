@@ -11,6 +11,6 @@ A estrutura principal do projeto se organiza na forma de quatro camadas principa
 ## Estrutura
 A estrutura de dados está representado pela imagem abaixo:
 
-![Estrutura de dados](Imgs/image.png)
+![Estrutura de dados](Imgs/layers-project.png)
 
 Cada camada contém classes referentes aos objetos a serem representados no projeto, para ver com mais detalhes os objetos a serem manipulados dentro da aplicação, veja a [estrutura de dados](data-structure.md) do projeto.
