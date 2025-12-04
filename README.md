@@ -33,4 +33,4 @@ conectar.
 O projeto é feito para executar pela JVM do Java 21, portanto é necessário que utilize um compilador que faça a execussão do projeto.
 
 ## 4. Alterações
-Toda e qualquer alteração no código deve ser realizada respeitando o processo de Git Flow definido.
+Toda e qualquer alteração no código deve ser realizada respeitando o processo de [Git Flow](https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar) [definido](docs/git-flow.md).
