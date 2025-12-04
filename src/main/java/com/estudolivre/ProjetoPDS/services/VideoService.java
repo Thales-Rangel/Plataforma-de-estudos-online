@@ -7,6 +7,7 @@ import com.estudolivre.ProjetoPDS.models.VideoAula;
 import com.estudolivre.ProjetoPDS.repositories.VideoRepository;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,8 +22,26 @@ public class VideoService {
         v.setDados(file.getBytes());
         return repository.save(v);
     }
+    
+    public void save(VideoAula videoAula) {
+    	repository.save(videoAula);
+    }
+    
+    public List<VideoAula> listar(){
+    	List<VideoAula> all = repository.findAll();
+    	
+    	return all.stream().toList();
+    }
 
-    public Optional<VideoAula> obterVideo(Long id) {
-        return repository.findById(id);
+    public VideoAula obterVideo(Long id) {
+        Optional<VideoAula> byId = repository.findById(id);
+        
+        if (byId.isEmpty()) {
+			return null;
+		}
+        
+        VideoAula videoAula = byId.get();
+    	
+    	return videoAula;
     }
 }

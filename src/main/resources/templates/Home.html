@@ -4,54 +4,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Estudo Livre</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
+
 <body>
-	<style>
-		body {
-			margin: 0;
-			font-family: Poppins, sans-serif;
-			background: #f4f4f4;
-		}
 
-		header {
-			background: #007bff;
-			padding: 15px;
-			color: #fff;
-			display: flex;
-			justify-content: space-between;
-		}
+	<div th:replace="~{Menu :: menu}"></div>
 
-		.menu a {
-			color: #fff;
-			margin-left: 20px;
-			text-decoration: none;
-		}
-
-		.content {
-			padding: 30px;
-		}
-	</style>
-	</head>
-
-	<body>
-
-		<header>
-			<h2>Estudo Livre</h2>
-
-			<nav class="menu">
-				<a href="/materiais">Materiais</a>
-				<a href="/videoaulas">Vídeos</a>
-				<a href="/logout">Sair</a>
-			</nav>
-		</header>
-
-		<div class="content">
-			<h3>Bem-vindo(a)!</h3>
-			<p>Aqui você pode acessar materiais, livros, artigos e videoaulas gratuitamente 🚀</p>
-		</div>
+	<div class="content">
+		<h3>Bem-vindo(a)!</h3>
+		<p>Aqui você pode acessar materiais, livros, artigos e videoaulas
+			gratuitamente 🚀</p>
+	</div>
 
 
-	</body>
+</body>
 
 </html>

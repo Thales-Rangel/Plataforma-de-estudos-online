@@ -13,44 +13,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.estudolivre.ProjetoPDS.models.Book;
-import com.estudolivre.ProjetoPDS.services.BookService;
+import com.estudolivre.ProjetoPDS.models.Article;
+import com.estudolivre.ProjetoPDS.services.ArticleService;
 
 @Controller
-@RequestMapping("/materiais/livros")
-public class BookController {
+@RequestMapping("/materiais/artigos")
+public class ArticleController {
 	
-	private final BookService service;
-
 	@Autowired
-	public BookController(BookService bookService) {
-		super();
-		this.service = bookService;
-	}
+	private ArticleService service;
 	
 	@GetMapping("/form")
-	public String form(Book livro) {
-		return "materials/books/formLivro";
+	public String form(Article artigo) {
+		return "materials/articles/formArtigo"; //name do HTML
 	}
 	
 	@PostMapping
-	public String salvar(Book livro) {
-		service.saveBook(livro);
+	public String salvar(Article artigo) {
+		service.saveArticle(artigo);
 		return "redirect:/materiais";
 	}
-
+	
 	@PostMapping("/upload")
-	public Book uploadFile(@RequestParam Long id, @RequestParam MultipartFile file) throws IOException {
-		return service.upload(id, file);
+	public void uploadFile (@RequestParam Article artigo, @RequestParam MultipartFile file) throws IOException {
+		service.upload(artigo, file);
 	}
 	
 	@GetMapping("/lista")
-	public List<Book> listar() {
-		return service.listAllBooks();
+	public List<Article> listar(){
+		return service.listAllArticles();
 	}
 	
 	@GetMapping("/{id}")
-	public Book buscarLivro(@PathVariable Long id) {
+	public Article buscarArticle(@PathVariable Long id) {
 		return service.findById(id);
 	}
 	

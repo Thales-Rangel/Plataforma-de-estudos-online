@@ -32,6 +32,10 @@ build/
 ### VS Code ###
 .vscode/
 
+### Eclipse ###
+.metadata/
+.metadata/**
+
 ### Arquivos ignorados ###
 /src/main/resources/application.properties
 
