@@ -36,8 +36,9 @@ public class TeachersController {
     	return service.findById(id);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void deletar(@PathVariable Long id) {
+    @GetMapping("/delete/{id}")
+    public String deletar(@PathVariable Long id) {
         service.delete(id);
+        return "redirect:/usuarios";
     }
 }
