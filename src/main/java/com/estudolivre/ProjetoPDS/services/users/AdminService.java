@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.estudolivre.ProjetoPDS.models.users.Admin;
-import com.estudolivre.ProjetoPDS.repositories.AdminRepository;
+import com.estudolivre.ProjetoPDS.repositories.users.AdminRepository;
 
 @Service
 public class AdminService {

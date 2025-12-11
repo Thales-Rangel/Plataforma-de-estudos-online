@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
 <meta charset="UTF-8">
@@ -86,11 +87,11 @@ button:hover {
 		<div class="content">
 			<h2>Materiais disponíveis</h2>
 
-			<!-- PROFESSOR VÊ O BOTÃO -->
-			<a href="/materiais/artigos/form" class="btn-primario"> Adicionar
-				Artigo </a> 
-			<a href="/materiais/livros/form" class="btn-primario">
-				Adicionar Livro </a>
+			<div sec:authorize="hasAnyRole('ADMIN', 'TEACHER')">
+				<!-- PROFESSOR VÊ O BOTÃO -->
+				<a href="/materiais/artigos/form" class="btn-primario"> Adicionar Artigo </a> 
+				<a href="/materiais/livros/form" class="btn-primario"> Adicionar Livro </a>
+			</div>
 
 			<div class="listas-materiais">
 

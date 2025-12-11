@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.estudolivre.ProjetoPDS.models.users.Teacher;
-import com.estudolivre.ProjetoPDS.repositories.TeachersRepository;
+import com.estudolivre.ProjetoPDS.repositories.users.TeachersRepository;
 
 @Service
 public class TeachersService {

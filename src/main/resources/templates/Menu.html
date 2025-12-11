@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Plataforma de Estudos</title>
+<meta charset="UTF-8">
+<title>Plataforma de Estudos</title>
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
@@ -14,10 +16,11 @@
 			<a href="#" class="brand-logo">Estudo Livre</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="/">Home</a></li>
-				<li><a href="/usuarios">Usuários</a></li>
+				<li sec:authorize="hasRole('ADMIN')"><a href="/usuarios">Usuários</a></li>
 				<li><a href="/materiais">Materiais</a></li>
 				<li><a href="/materiais/videos">Vídeos</a></li>
-				<li><a th:href="@{/logout}">Sair</a></li>
+				<li sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Login</a></li>
+				<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Sair</a></li>
 			</ul>
 		</div>
 	</nav>

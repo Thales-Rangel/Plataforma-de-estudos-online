@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.estudolivre.ProjetoPDS.models.materials.Article;
-import com.estudolivre.ProjetoPDS.repositories.ArticleRepository;
+import com.estudolivre.ProjetoPDS.repositories.materials.ArticleRepository;
 
 @Service
 public class ArticleService {
