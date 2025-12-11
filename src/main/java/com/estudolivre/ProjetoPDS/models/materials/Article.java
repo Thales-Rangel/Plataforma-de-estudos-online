@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.models;
+package com.estudolivre.ProjetoPDS.models.materials;
 
 import java.util.Arrays;
 

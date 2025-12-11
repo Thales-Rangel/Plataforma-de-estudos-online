@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.controllers;
+package com.estudolivre.ProjetoPDS.controllers.materials;
 
 import java.util.List;
 

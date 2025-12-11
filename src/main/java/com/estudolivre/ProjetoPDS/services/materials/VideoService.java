@@ -1,9 +1,9 @@
-package com.estudolivre.ProjetoPDS.services;
+package com.estudolivre.ProjetoPDS.services.materials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.estudolivre.ProjetoPDS.models.VideoAula;
+import com.estudolivre.ProjetoPDS.models.materials.VideoAula;
 import com.estudolivre.ProjetoPDS.repositories.VideoRepository;
 
 import java.io.IOException;

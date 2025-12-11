@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.models;
+package com.estudolivre.ProjetoPDS.models.users;
 
 import jakarta.persistence.Entity;
 

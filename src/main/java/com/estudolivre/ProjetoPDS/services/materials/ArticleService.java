@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.services;
+package com.estudolivre.ProjetoPDS.services.materials;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.estudolivre.ProjetoPDS.models.Article;
+import com.estudolivre.ProjetoPDS.models.materials.Article;
 import com.estudolivre.ProjetoPDS.repositories.ArticleRepository;
 
 @Service

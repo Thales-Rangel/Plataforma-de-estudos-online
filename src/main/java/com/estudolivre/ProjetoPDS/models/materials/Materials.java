@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.models;
+package com.estudolivre.ProjetoPDS.models.materials;
 
 import java.time.LocalDate;
 
@@ -15,10 +15,10 @@ public abstract class Materials {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	private String author;
-	private String title;
-	private LocalDate publicationDate;
+	protected Long id;
+	protected String author;
+	protected String title;
+	protected LocalDate publicationDate;
 
 	public Long getId() {
 		return id;

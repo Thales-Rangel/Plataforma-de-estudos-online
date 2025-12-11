@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.controllers;
+package com.estudolivre.ProjetoPDS.controllers.users;
 
 import java.util.List;
 

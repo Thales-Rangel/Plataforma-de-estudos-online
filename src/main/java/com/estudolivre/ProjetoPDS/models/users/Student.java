@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.models;
+package com.estudolivre.ProjetoPDS.models.users;
 
 import jakarta.persistence.Entity;
 
@@ -22,6 +22,5 @@ public class Student extends Users {
 	public void setCurso(String curso) {
 		this.curso = curso;
 	}
-	
 
 }

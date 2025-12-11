@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.controllers;
+package com.estudolivre.ProjetoPDS.controllers.materials;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.controllers;
+package com.estudolivre.ProjetoPDS.controllers.users;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class UsersController {
 	private TeachersService teachersService;
 	
 	@GetMapping
-	public ModelAndView index() {
+	public ModelAndView listar() {
 		
 		List<Student> listAllStudents = studentService.listAllStudents();
 		List<Teacher> listAllTeachers = teachersService.listAllTeachers();
