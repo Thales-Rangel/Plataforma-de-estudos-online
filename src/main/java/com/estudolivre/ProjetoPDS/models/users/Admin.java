@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.models;
+package com.estudolivre.ProjetoPDS.models.users;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,5 +23,5 @@ public class Admin extends Users {
 	public String toString() {
 		return "admin [passe=" + passe + "]";
 	}
-
+	
 }

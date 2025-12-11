@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.controllers;
+package com.estudolivre.ProjetoPDS.controllers.materials;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.estudolivre.ProjetoPDS.models.Article;
-import com.estudolivre.ProjetoPDS.models.Book;
-import com.estudolivre.ProjetoPDS.services.ArticleService;
-import com.estudolivre.ProjetoPDS.services.BookService;
+import com.estudolivre.ProjetoPDS.models.materials.Article;
+import com.estudolivre.ProjetoPDS.models.materials.Book;
+import com.estudolivre.ProjetoPDS.services.materials.ArticleService;
+import com.estudolivre.ProjetoPDS.services.materials.BookService;
 
 @Controller
 @RequestMapping("/materiais")

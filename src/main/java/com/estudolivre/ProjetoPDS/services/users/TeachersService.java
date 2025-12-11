@@ -1,4 +1,4 @@
-package com.estudolivre.ProjetoPDS.services;
+package com.estudolivre.ProjetoPDS.services.users;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.estudolivre.ProjetoPDS.models.Teacher;
+import com.estudolivre.ProjetoPDS.models.users.Teacher;
 import com.estudolivre.ProjetoPDS.repositories.TeachersRepository;
 
 @Service

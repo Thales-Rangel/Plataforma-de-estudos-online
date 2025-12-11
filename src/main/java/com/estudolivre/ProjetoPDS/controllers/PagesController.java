@@ -21,5 +21,5 @@ public class PagesController {
 	public String logout() {
 		return "logout";
 	}
-		
+
 }

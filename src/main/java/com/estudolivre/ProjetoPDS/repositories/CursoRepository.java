@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.estudolivre.ProjetoPDS.models.Curso;
-import com.estudolivre.ProjetoPDS.models.Teacher;
+import com.estudolivre.ProjetoPDS.models.users.Teacher;
 
 @Repository
 public interface CursoRepository extends JpaRepository<Curso, Long> {
