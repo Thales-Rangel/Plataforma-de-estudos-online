@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.estudolivre.ProjetoPDS.models.users.Student;
-import com.estudolivre.ProjetoPDS.repositories.StudentRepository;
+import com.estudolivre.ProjetoPDS.repositories.users.StudentRepository;
 
 @Service
 public class StudentService {

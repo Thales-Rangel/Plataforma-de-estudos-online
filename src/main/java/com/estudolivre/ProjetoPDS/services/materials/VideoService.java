@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.estudolivre.ProjetoPDS.models.materials.VideoAula;
-import com.estudolivre.ProjetoPDS.repositories.VideoRepository;
+import com.estudolivre.ProjetoPDS.repositories.materials.VideoRepository;
 
 import java.io.IOException;
 import java.util.List;

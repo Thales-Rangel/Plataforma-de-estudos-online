@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.estudolivre.ProjetoPDS.models.users.Users;
-import com.estudolivre.ProjetoPDS.repositories.UserRepository;
+import com.estudolivre.ProjetoPDS.repositories.users.UserRepository;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.estudolivre.ProjetoPDS.models.materials.Book;
-import com.estudolivre.ProjetoPDS.repositories.BookRepository;
+import com.estudolivre.ProjetoPDS.repositories.materials.BookRepository;
 
 @Service
 public class BookService {
