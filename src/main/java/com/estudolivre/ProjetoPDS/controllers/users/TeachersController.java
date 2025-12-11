@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import com.estudolivre.ProjetoPDS.models.Teacher;
-import com.estudolivre.ProjetoPDS.services.TeachersService;
+import com.estudolivre.ProjetoPDS.models.users.Teacher;
+import com.estudolivre.ProjetoPDS.services.users.TeachersService;
 
 import java.util.List;
 

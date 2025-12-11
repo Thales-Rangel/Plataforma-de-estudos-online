@@ -25,6 +25,11 @@ button {
 
 	<div th:replace="~{Menu :: menu}"></div>
 	<div class="container">
+		<p th:if="${param.error}" class="red-text">Usuário ou senha
+			inválidos.</p>
+		<p th:if="${param.logout}" class="red-text">Você foi deslogado com
+			sucesso.</p>
+
 		<h2>Entrar</h2>
 
 		<form th:action="@{/login}" method="post">
@@ -39,6 +44,20 @@ button {
 			</p>
 		</form>
 	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.sidenav').sidenav();
+		});
+		$(document).ready(function() {
+			$('select').formSelect();
+		});
+	</script>
 
 </body>
 </html>

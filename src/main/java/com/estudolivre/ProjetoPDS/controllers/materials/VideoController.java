@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.estudolivre.ProjetoPDS.models.VideoAula;
-import com.estudolivre.ProjetoPDS.services.VideoService;
+import com.estudolivre.ProjetoPDS.models.materials.VideoAula;
+import com.estudolivre.ProjetoPDS.services.materials.VideoService;
 
 import java.util.List;
 

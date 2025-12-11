@@ -1,17 +1,22 @@
 package com.estudolivre.ProjetoPDS.models.users;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.estudolivre.ProjetoPDS.models.Papeis;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -25,6 +30,9 @@ public abstract class Users implements UserDetails {
 	@Column(unique = true)
 	protected String email;
 	protected String senha;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	private List<Papeis> papeis;
 
 	public Long getId() {
 		return id;
@@ -57,6 +65,14 @@ public abstract class Users implements UserDetails {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public List<Papeis> getPapeis() {
+		return papeis;
+	}
+
+	public void setPapeis(List<Papeis> papeis) {
+		this.papeis = papeis;
+	}
 
 	@Override
 	public String toString() {
@@ -65,17 +81,14 @@ public abstract class Users implements UserDetails {
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.papeis;
 	}
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
 		return this.senha;
 	}
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return this.email;
 	}
 

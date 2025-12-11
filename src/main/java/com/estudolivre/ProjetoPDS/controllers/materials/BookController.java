@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.estudolivre.ProjetoPDS.models.Book;
-import com.estudolivre.ProjetoPDS.services.BookService;
+import com.estudolivre.ProjetoPDS.models.materials.Book;
+import com.estudolivre.ProjetoPDS.services.materials.BookService;
 
 @Controller
 @RequestMapping("/materiais/livros")

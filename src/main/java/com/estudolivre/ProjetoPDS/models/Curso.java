@@ -2,6 +2,10 @@ package com.estudolivre.ProjetoPDS.models;
 
 import java.util.List;
 
+import com.estudolivre.ProjetoPDS.models.materials.Materials;
+import com.estudolivre.ProjetoPDS.models.users.Student;
+import com.estudolivre.ProjetoPDS.models.users.Teacher;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

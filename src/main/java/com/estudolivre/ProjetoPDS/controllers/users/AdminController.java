@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.estudolivre.ProjetoPDS.models.Admin;
-import com.estudolivre.ProjetoPDS.services.AdminService;
+import com.estudolivre.ProjetoPDS.models.users.Admin;
+import com.estudolivre.ProjetoPDS.services.users.AdminService;
 
 @Controller
 @RequestMapping("usuarios/admin")

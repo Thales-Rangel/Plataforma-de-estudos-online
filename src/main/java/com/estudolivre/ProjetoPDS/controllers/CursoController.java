@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.estudolivre.ProjetoPDS.models.Curso;
-import com.estudolivre.ProjetoPDS.models.Teacher;
+import com.estudolivre.ProjetoPDS.models.users.Teacher;
 import com.estudolivre.ProjetoPDS.services.CursoService;
 
 @Controller
