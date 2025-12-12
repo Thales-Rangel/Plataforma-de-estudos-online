@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,17 +25,20 @@ public class ArticleController {
 	private ArticleService service;
 	
 	@GetMapping("/form")
+	@PreAuthorize("hasRole('TEACHER')")
 	public String form(Article artigo) {
 		return "materials/articles/formArtigo"; //name do HTML
 	}
 	
 	@PostMapping
+	@PreAuthorize("hasRole('TEACHER')")
 	public String salvar(Article artigo) {
 		service.saveArticle(artigo);
 		return "redirect:/materiais";
 	}
 	
 	@PostMapping("/upload")
+	@PreAuthorize("hasRole('TEACHER')")
 	public void uploadFile (@RequestParam Article artigo, @RequestParam MultipartFile file) throws IOException {
 		service.upload(artigo, file);
 	}
@@ -50,6 +54,7 @@ public class ArticleController {
 	}
 	
 	@DeleteMapping("/delete/{id}")
+	@PreAuthorize("hasRole('TEACHER')")
 	public void deletar(@PathVariable Long id) {
 		service.delete(id);
 	}

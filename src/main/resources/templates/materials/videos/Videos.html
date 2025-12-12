@@ -87,7 +87,7 @@ button:hover {
 		<div class="content">
 			<h2>Vídeos disponíveis</h2>
 
-			<div sec:authorize="hasAnyRole('ADMIN', 'TEACHER')">
+			<div sec:authorize="hasRole('TEACHER')">
 				<!-- PROFESSOR VÊ O BOTÃO -->
 				<a href="/materiais/videos/form" class="btn-primario"> Adicionar
 					Vídeo </a>

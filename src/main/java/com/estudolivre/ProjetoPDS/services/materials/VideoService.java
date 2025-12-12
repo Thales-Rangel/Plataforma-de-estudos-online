@@ -44,4 +44,16 @@ public class VideoService {
     	
     	return videoAula;
     }
+    
+    public void deletar(Long id) {
+    	Optional<VideoAula> byId = repository.findById(id);
+    	
+    	if (byId.isEmpty()) {
+			return;
+		}
+    	
+    	VideoAula videoAula = byId.get();
+    	
+    	repository.delete(videoAula);
+    }
 }

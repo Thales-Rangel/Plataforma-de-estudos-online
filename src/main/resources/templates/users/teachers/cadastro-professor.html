@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Cadastrar professor | Estudo Livre</title>
+<link rel="stylesheet" href="/css/login.css">
+
+<!-- Materialize CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Ícones do Google -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<style>
+body {
+	margin: 0;
+	font-family: Poppins, sans-serif;
+	background: #f4f4f4;
+}
+
+button {
+	background: #007bff;
+	color: white;
+	padding: 10px 18px;
+	border-radius: 8px;
+	text-decoration: none;
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+.content {
+	padding: 30px;
+}
+
+.btn-editar {
+	background: #007bff;
+}
+
+.btn-editar:hover {
+	background: #005fcc;
+}
+
+.btn-remover {
+	background: #e53935;
+}
+
+.btn-remover:hover {
+	background: #c62828;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div th:replace="~{Menu :: menu}"></div>
+	
+	<div class="container">
+		<h2>Criar Conta de Professor</h2>
+
+		<form action="/usuarios/professor" method="post" th:object="${teacher}">
+		
+			<div>
+				<p th:if="${erro}" th:text="${erro}"></p>
+			</div>
+			
+			<div>
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+			</div>
+			
+			<div>
+				<input type="text" th:field="*{nomeCompleto}" placeholder="Seu nome completo" required>
+				<p th:errors="*{nomeCompleto}">Não pode estar em branco</p>
+			</div>
+			
+			<div>
+				<input type="email" th:field="*{email}" placeholder="E-mail" required>
+				<p th:errors="*{email}">Não pode estar em branco</p>
+			</div>
+			
+			<div>
+				<input type="password" th:field="*{senha}" placeholder="Senha" required>
+				<p th:errors="*{senha}">Não pode estar em branco</p>
+			</div>
+			
+			<div>
+				<input type="text" th:field="*{disciplina}" placeholder="Disciplina/área de ensino" required>
+				<p th:errors="*{disciplina}">Não pode estar em branco</p>
+			</div>
+			
+			<div>
+				<input type="text" th:field="*{formacao}" placeholder="Sua formação acadêmica" required>
+				<p th:errors="*{formacao}">Não pode estar em branco</p>			
+			</div>
+
+			<button type="submit">Cadastrar</button>
+
+			<p class="cadastro">
+				Já tem conta? <a href="/login">Entrar</a>
+			</p>
+		</form>
+	</div>
+</body>
+</html>
