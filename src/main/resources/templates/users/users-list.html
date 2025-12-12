@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="UTF-8">
+<title>Usuários | Estudo Livre</title>
+
+<!-- Materialize CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Ícones do Google -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<style>
+body {
+	margin: 0;
+	font-family: Poppins, sans-serif;
+	background: #f4f4f4;
+}
+
+.btn-primario {
+	background: #007bff;
+	color: white;
+	padding: 10px 18px;
+	border-radius: 8px;
+	text-decoration: none;
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+.content {
+	padding: 30px;
+}
+
+.btn-editar {
+	background: #007bff;
+}
+
+.btn-editar:hover {
+	background: #005fcc;
+}
+
+.btn-remover {
+	background: #e53935;
+}
+
+.btn-remover:hover {
+	background: #c62828;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div th:replace="~{Menu :: menu}"></div>
+
+	<div class="container">
+		<h2>Usuários Cadastrados</h2>
+
+		<div sec:authorize="hasRole('ADMIN')">
+			<!-- ADMIN VÊ O BOTÃO -->
+			<a href="/usuarios/admin/form" class="btn-primario"> Adicionar Usuário Administrador</a>
+		</div>
+
+		<div class="content">
+			<h3 style="font-size: 30px">Estudantes</h3>
+
+			<table class="highlight">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nome</th>
+						<th>Email</th>
+						<th>Área de estudo</th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="e : ${estudantes}">
+						<td th:text="${e.id}">1</td>
+						<td th:text="${e.nomeCompleto}">Nome</td>
+						<td th:text="${e.email}">email@email.com</td>
+						<td th:text="${e.curso}">Informática</td>
+
+						<td><a
+							th:href="@{/usuarios/estudante/delete/{id}(id=${e.id})}"
+							class="waves-effect waves-light btn btn-remover"
+							onclick="confirm('Tem certeza que deseja remover este usuário?')">
+								<i class="material-icons left">delete</i>
+						</a></td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+
+		<div class="content">
+			<h3 style="font-size: 30px">Professores</h3>
+
+			<table class="highlight">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nome</th>
+						<th>Email</th>
+						<th>Formação</th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="p : ${professores}">
+						<td th:text="${p.id}">1</td>
+						<td th:text="${p.nomeCompleto}">Nome</td>
+						<td th:text="${p.email}">email@email.com</td>
+						<td th:text="${p.formacao}">Sistemas</td>
+
+						<td><a
+							th:href="@{/usuarios/professor/delete/{id}(id=${p.id})}"
+							class="waves-effect waves-light btn btn-remover"
+							onclick="confirm('Tem certeza que deseja remover este usuário?')">
+								<i class="material-icons left">delete</i>
+						</a></td>
+					</tr>
+				</tbody>
+
+			</table>
+
+		</div>
+		
+		<div class="content">
+			<h3 style="font-size: 30px">Administradores</h3>
+
+			<table class="highlight">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nome</th>
+						<th>Email</th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="a : ${administradores}">
+						<td th:text="${a.id}">1</td>
+						<td th:text="${a.nomeCompleto}">Nome</td>
+						<td th:text="${a.email}">email@email.com</td>
+
+						<td><a
+							th:href="@{/usuarios/admin/delete/{id}(id=${a.id})}"
+							class="waves-effect waves-light btn btn-remover"
+							onclick="confirm('Tem certeza que deseja remover este usuário?')">
+								<i class="material-icons left">delete</i>
+						</a></td>
+					</tr>
+				</tbody>
+
+			</table>
+
+		</div>
+	</div>
+
+</body>
+</html>

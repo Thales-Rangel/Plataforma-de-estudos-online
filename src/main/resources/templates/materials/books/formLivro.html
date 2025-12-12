@@ -82,6 +82,11 @@ button:hover {
 		<form action="/materiais/livros"
 			method="post" th:object="${Livro}">
 			<div>
+				<input type="hidden" th:name="${_csrf.parameterName}"
+					th:value="${_csrf.token}" />
+			</div>
+			
+			<div>
 				<input type="hidden" readonly="readonly" name="Id">
 			</div>
 			<div>
